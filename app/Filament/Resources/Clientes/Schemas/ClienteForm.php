@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Filament\Resources\Clientes\Schemas;
+
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Schema;
+
+class ClienteForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                TextInput::make('nombre')
+                    ->required(),
+                TextInput::make('telefono')
+                    ->tel(),
+                TextInput::make('email')
+                    ->label('Email address')
+                    ->email(),
+                TextInput::make('rfc'),
+                TextInput::make('nombre_fiscal'),
+                TextInput::make('regimen_fiscal'),
+                TextInput::make('codigo_postal_fiscal'),
+                TextInput::make('uso_cfdi_default'),
+                TextInput::make('direccion'),
+                Toggle::make('activo')
+                    ->required(),
+            ]);
+    }
+}
